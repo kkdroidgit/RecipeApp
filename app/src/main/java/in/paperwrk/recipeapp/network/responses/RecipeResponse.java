@@ -8,7 +8,7 @@ import in.paperwrk.recipeapp.model.Recipe;
 public class RecipeResponse {
 
     @SerializedName("recipe")
-    @Expose()
+    @Expose
     private Recipe recipe;
 
     public Recipe getRecipe() {
@@ -21,4 +21,5 @@ public class RecipeResponse {
                 "recipe=" + recipe +
                 '}';
     }
+
 }

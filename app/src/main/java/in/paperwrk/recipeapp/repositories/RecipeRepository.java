@@ -9,11 +9,10 @@ import in.paperwrk.recipeapp.network.RecipeApiClient;
 public class RecipeRepository {
 
     private static RecipeRepository instance;
-
     private RecipeApiClient mRecipeApiClient;
 
-    public static RecipeRepository getInstance() {
-        if (instance == null){
+    public static RecipeRepository getInstance(){
+        if(instance == null){
             instance = new RecipeRepository();
         }
         return instance;
@@ -21,18 +20,21 @@ public class RecipeRepository {
 
     private RecipeRepository() {
         mRecipeApiClient = RecipeApiClient.getInstance();
-
     }
 
-    public LiveData<List<Recipe>> getRecipes() {
+    public LiveData<List<Recipe>> getRecipes(){
         return mRecipeApiClient.getRecipes();
     }
 
-
     public void searchRecipesApi(String query, int pageNumber){
-        if (pageNumber == 0){
+        if(pageNumber == 0){
             pageNumber = 1;
         }
-        mRecipeApiClient.searchRecipesApi(query,pageNumber);
+        mRecipeApiClient.searchRecipesApi(query, pageNumber);
     }
+
+    public void cancelRequest(){
+        mRecipeApiClient.cancelRequest();
+    }
+
 }

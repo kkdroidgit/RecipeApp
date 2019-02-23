@@ -7,15 +7,17 @@ public class AppExecutors {
 
     private static AppExecutors instance;
 
-    public static AppExecutors getInstance() {
-        if (instance == null) instance = new AppExecutors();
+    public static AppExecutors get(){
+        if(instance == null){
+            instance = new AppExecutors();
+        }
         return instance;
     }
 
-    // schedule threads to run after a delay
-    private final ScheduledExecutorService service = Executors.newScheduledThreadPool(3);
+    private final ScheduledExecutorService mNetworkIO = Executors.newScheduledThreadPool(3);
 
-    public ScheduledExecutorService getService() {
-        return service;
+    public ScheduledExecutorService networkIO() {
+        return mNetworkIO;
     }
+
 }

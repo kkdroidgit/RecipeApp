@@ -8,15 +8,15 @@ import retrofit2.http.Query;
 
 public interface RecipeApi {
 
-    // Search Recipe Request
+    // SEARCH
     @GET("api/search")
-    Call<RecipeSearchResponse> searchRecipes(
+    Call<RecipeSearchResponse> searchRecipe(
             @Query("key") String key,
             @Query("q") String query,
             @Query("page") String page
     );
 
-    // Get Recipe Request
+    // GET SPECIFIC RECIPE
     @GET("api/get")
     Call<RecipeResponse> getRecipe(
             @Query("key") String key,
